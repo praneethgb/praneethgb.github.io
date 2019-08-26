@@ -74,6 +74,8 @@ header nav li {
 display: inline-block;
 margin: 0 0.5em;
 vertical-align: middle;
+color: #009900;
+font: normal 120% 'Patrick Hand';
 }
 
 header a {
