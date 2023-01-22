@@ -137,3 +137,28 @@ border-radius: 25px;
 #about {
 display:inline-block;
 }
+
+<style>
+    section {
+        background-color: #f2f2f2; /* Add a background color */
+        text-align: center; /* Center the text */
+        padding: 20px; /* Add some padding */
+    }
+
+    h3 {
+        font-size: 24px; /* Increase the font size for the heading */
+        color: #333; /* Change the color of the text */
+    }
+
+    li {
+        font-size: 18px; /* Increase the font size for the list items */
+        color: #333; /* Change the color of the text */
+        list-style: none; /* Remove the bullet points */
+        padding: 10px 0; /* Add some padding to the top and bottom of each list item */
+    }
+
+    a {
+        color: #337ab7; /* Change the color of the links */
+    }
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
