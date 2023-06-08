@@ -1,2 +1,1 @@
-### http://cs.stonybrook.edu/~pgubbala
-Personal web page
+### Personal web page
