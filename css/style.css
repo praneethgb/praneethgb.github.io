@@ -1,164 +1,409 @@
-@import url(http://fonts.googleapis.com/css?family=Patrick+Hand);
-
-body {
-background: #B89470;
-font: normal 110% 'Georgia';
-margin: 0;
-color: #555;
+:root {
+    --ink: #17212b;
+    --muted: #5b6874;
+    --soft: #eef2f3;
+    --line: #d9e0e3;
+    --paper: #ffffff;
+    --canvas: #f7f8f7;
+    --accent: #1b6f73;
+    --accent-dark: #14565a;
+    --max-width: 1120px;
 }
 
-body > header, body > section {
-width: 820px;
-padding: 20px;
-margin: 20px auto;
-background: white;
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
 }
 
 a {
-color: #996633;
-text-decoration: none;
+    color: var(--accent-dark);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
 }
 
-strong {
-font-weight: 300;
-color: #000000;
+a:hover,
+a:focus-visible {
+    color: var(--accent);
 }
 
-h1, h2, h3{
-margin: 0;
-font: normal 170% 'Patrick Hand';
-font-weight: 400;
-color: #009900;
+:focus-visible {
+    outline: 3px solid rgba(27, 111, 115, 0.35);
+    outline-offset: 3px;
 }
 
-h4, h5, h6 {
-margin: 0;
-font: normal 120% 'Patrick Hand';
-font-weight: 350;
-color: #009900;
+.site-header,
+.site-main,
+.site-footer {
+    width: min(calc(100% - 2.5rem), var(--max-width));
+    margin-inline: auto;
 }
 
-ul {
-list-style-type: square;
-padding: 0 1em;
+.site-header {
+    padding: 1.5rem 0 1rem;
 }
 
-code, pre, tt {
-font: 80% "Droid Sans Mono", monospace;
-background: #f3f3f3;
-padding: 0.2em;
+.brand {
+    color: var(--ink);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-decoration: none;
 }
 
-pre {
-border: 1px solid #ddd;
-border-radius: 5px;
-padding: 0.5em;
-overflow: auto;
+.site-nav {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.4rem;
+    justify-content: space-between;
 }
 
-pre code {
-padding: 0;
-font-size: 90%;
-display: block;
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-header {
-position: relative;
+.nav-links a {
+    color: var(--muted);
+    font-size: 0.92rem;
+    text-decoration: none;
 }
 
-header nav {
-font-size: 120%;
-position: absolute;
-right: 0;
+.nav-links a:hover,
+.nav-links a:focus-visible,
+.nav-links a[aria-current="page"] {
+    color: var(--accent-dark);
 }
 
-header nav ul {
-padding: 0;
-margin: 5px;
+.nav-links a[aria-current="page"] {
+    font-weight: 700;
 }
 
-header nav li {
-display: inline-block;
-margin: 0 0.5em;
-vertical-align: middle;
-color: #009900;
-font: normal 120% 'Patrick Hand';
+.site-main {
+    padding: 3rem 0 5rem;
 }
 
-header a {
-color: inherit;
+.hero {
+    align-items: center;
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.6fr);
+    min-height: 31rem;
 }
 
-header {
-border: 2px solid;
-border-radius: 25px;
+.eyebrow {
+    color: var(--accent-dark);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    margin: 0 0 1rem;
+    text-transform: uppercase;
 }
 
-section {
-line-height: 1.7em;
-border: 2px solid;
-border-radius: 25px;
+h1,
+h2,
+h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    line-height: 1.15;
 }
 
-hr {
-width: 960px;
-margin-left: -20px;
-border: 0;
-background: #f3f3f3;
-height: 20px;
+h1 {
+    font-size: clamp(3rem, 7vw, 5.8rem);
+    letter-spacing: -0.045em;
+    margin: 0;
+    max-width: 9ch;
 }
 
-table {
-margin: 1em 0;
-border-collapse: collapse;
+h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    letter-spacing: -0.035em;
+    margin: 0 0 1rem;
 }
 
-th {
-text-align: left;
+h3 {
+    font-size: 1.35rem;
+    margin: 0 0 0.4rem;
 }
 
-th, td {
-border: 1px solid #555;
-padding: 0.5em;
+p {
+    margin: 0 0 1.2rem;
 }
 
-img {
-	border: 2px solid;
-border-radius: 25px;
+.hero-role {
+    color: var(--muted);
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    margin: 1rem 0 1.5rem;
 }
 
-#picture {
-display:inline-block;
-margin-right: 20px;
-border: 2px solid;
-border-radius: 25px;
+.hero-copy {
+    color: var(--muted);
+    font-size: 1.08rem;
+    max-width: 62ch;
 }
 
-#about {
-display:inline-block;
+.portrait {
+    border-radius: 50%;
+    display: block;
+    filter: grayscale(12%);
+    justify-self: end;
+    max-width: 100%;
+    width: 250px;
 }
 
-<style>
-    section {
-        background-color: #f2f2f2; /* Add a background color */
-        text-align: center; /* Center the text */
-        padding: 20px; /* Add some padding */
+.button-row,
+.profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.button-row {
+    margin-top: 2rem;
+}
+
+.button {
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 0.25rem;
+    color: #fff;
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.7rem 1rem;
+    text-decoration: none;
+}
+
+.button:hover,
+.button:focus-visible {
+    background: var(--accent-dark);
+    color: #fff;
+}
+
+.button-secondary {
+    background: transparent;
+    color: var(--accent-dark);
+}
+
+.section {
+    border-top: 1px solid var(--line);
+    margin-top: 4rem;
+    padding-top: 3rem;
+}
+
+.section-intro {
+    color: var(--muted);
+    max-width: 64ch;
+}
+
+.interest-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 2rem;
+}
+
+.interest {
+    background: var(--paper);
+    border-top: 3px solid var(--accent);
+    padding: 1.3rem;
+}
+
+.interest h3 {
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.page-heading {
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+}
+
+.page-heading p {
+    color: var(--muted);
+    font-size: 1.08rem;
+    max-width: 65ch;
+}
+
+.publication-list,
+.research-list {
+    display: grid;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.publication,
+.research-item,
+.cv-panel,
+.contact-panel {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 1.5rem;
+}
+
+.publication {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 7rem 1fr;
+}
+
+.publication-date,
+.meta {
+    color: var(--accent-dark);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.publication p,
+.research-item p {
+    color: var(--muted);
+    margin-bottom: 0;
+}
+
+.research-grid,
+.contact-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.research-item {
+    min-height: 100%;
+}
+
+.research-item .meta {
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.cv-panel {
+    align-items: start;
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+.cv-panel p {
+    color: var(--muted);
+    max-width: 62ch;
+}
+
+.contact-panel address {
+    font-style: normal;
+}
+
+.profile-links {
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 0;
+}
+
+.profile-links a {
+    border-bottom: 1px solid var(--line);
+    display: inline-block;
+    padding-bottom: 0.2rem;
+}
+
+.site-footer {
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: 2rem 0 3rem;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+.footer-name {
+    color: var(--ink);
+    font-weight: 700;
+}
+
+@media (max-width: 760px) {
+    .site-header,
+    .site-main,
+    .site-footer {
+        width: min(calc(100% - 2rem), var(--max-width));
     }
 
-    h3 {
-        font-size: 24px; /* Increase the font size for the heading */
-        color: #333; /* Change the color of the text */
+    .site-nav {
+        align-items: flex-start;
+        flex-direction: column;
     }
 
-    li {
-        font-size: 18px; /* Increase the font size for the list items */
-        color: #333; /* Change the color of the text */
-        list-style: none; /* Remove the bullet points */
-        padding: 10px 0; /* Add some padding to the top and bottom of each list item */
+    .hero {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 2rem;
+        min-height: 0;
     }
 
-    a {
-        color: #337ab7; /* Change the color of the links */
+    .portrait {
+        align-self: center;
+        width: 190px;
     }
-</style>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    .interest-grid,
+    .research-grid,
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cv-panel {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-main {
+        padding-top: 2rem;
+    }
+
+    .interest-grid,
+    .research-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .publication {
+        grid-template-columns: 1fr;
+    }
+
+    .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
